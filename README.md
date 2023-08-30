@@ -9,7 +9,7 @@ Facial age estimation is about teaching a computer program to guess how old some
 **Project Proposal:**
 
 - _We require an accurate model for age prediction._
-- _The model must also be fast and suitable for real-time applications._
+- _The model should focus on being fast, although it doesn't need to work in real-time for this project._
 - _A user-friendly GUI is essential. This GUI could be in the form of a desktop app, web app, or another appropriate platform._
 - _The project must include excellent and comprehensive documentation, along with comments in the source code for better understanding._
 
