@@ -1,4 +1,8 @@
-# Facial Age Estimatio
+<div align="center">
+  <img src="Age-estimation-hero.png" alt="Logo" width="" height="300">
+</div>
+
+# Facial Age Estimation
 
 Facial age estimation is about teaching a computer program to guess how old someone is based on their face. This is a really interesting task in the world of computers and real life. However, it's not easy because there are many things that make it tricky. For example, people come in different genders and races, and they have different genes and do different exercises, which can make them look older or younger. Also, some people wear glasses, beards, mustaches, or makeup, and this can confuse the computer program when it tries to guess their age.
 
@@ -7,7 +11,7 @@ Facial age estimation is about teaching a computer program to guess how old some
 - _We require an accurate model for age prediction._
 - _The model must also be fast and suitable for real-time applications._
 - _A user-friendly GUI is essential. This GUI could be in the form of a desktop app, web app, or another appropriate platform._
-- _The project must include an excellent and comprehensive documentation, along with comments in the source code for better understanding._
+- _The project must include excellent and comprehensive documentation, along with comments in the source code for better understanding._
 
 ## Related Works:
 
@@ -15,7 +19,11 @@ I have read several important and significant papers related to Facial Age Estim
 
 ### Simple Regression:
 
-In this approach, we treat the facial age estimation problem as a regression task. A regression head is employed after the conventional backbone for feature extraction, enabling us to estimate the age. This method often use L1 or L2 loss functions.
+The Simple Regression Approach involves treating the problem of facial age estimation as a regression task. This method employs a regression head after extracting features using a conventional backbone. By utilizing regression loss functions like L1 or L2, the approach aims to predict an exact age value. it may face challenges such as predicting nonsensical or negative age values due to the nature of regression techniques.
+
+#### Sample Implementation
+In this study, the authors implement a regression approach for facial age estimation. Additionally, they predict the sex and BMI of individuals.  
+[[`Code`](https://medium.com/analytics-vidhya/linear-regression-using-pytorch-eacd3a87939d)]
 
 #### Advantages:
 
@@ -23,16 +31,20 @@ In this approach, we treat the facial age estimation problem as a regression tas
 
 #### Disadvantages:
 
-- _regression approaches can predict nonsensical and even negative age values._
+- _Regression approaches can predict nonsensical and even negative age values._
 
 ### Simple Classification: 
 The conventional classification approach means using conventional
-Backbone for feature extraction folowed by classification. They mostly use cross entropy loss. This approach still remains popular in the literature. For instance:
+Backbone for feature extraction followed by classification. They mostly use cross-entropy loss. This approach still remains popular in the literature. For instance:
 
 #### Papers:
 
-+ **Deep EXpectation (DEX) _"Rasmus Rothe"_:** This paper aims to estimate age using deep learning. They use the VGG-16 architecture, pretrained on ImageNet. They also create a dataset with 0.5 million images of celebrities from IMDB and Wikipedia, and fine-tune their network on this dataset. They pose the age regression problem as a deep classification challenge, followed by a softmax expected value refinement, and demonstrate improvements over the direct regression training of CNNs. The Deep EXpectation (DEX) method first detects the face in the test image and then extracts the CNN predictions from an ensemble of 20 networks on the cropped face. The output layer is adapted to have 101 output neurons, each corresponding to natural numbers from 0 to 100 – the year discretization used for age class labels. They also achieved 1<sup>st</sup> place in the ChaLearn LAP 2015 challenge.
++ **Deep EXpectation (DEX) _"Rasmus Rothe"_:** This paper aims to estimate age using deep learning. They use the VGG-16 architecture, pre-trained on ImageNet. They also created a dataset with 0.5 million images of celebrities from IMDB and Wikipedia and fine-tuned their network on this dataset. They pose the age regression problem as a deep classification challenge, followed by a softmax expected value refinement, and demonstrate improvements over the direct regression training of CNNs. The Deep EXpectation (DEX) method first detects the face in the test image and then extracts the CNN predictions from an ensemble of 20 networks on the cropped face. The output layer is adapted to have 101 output neurons, each corresponding to natural numbers from 0 to 100 – the year discretization used for age class labels. They also achieved 1<sup>st</sup> place in the ChaLearn LAP 2015 challenge.
   [[`Paper`](https://data.vision.ee.ethz.ch/cvl/publications/papers/proceedings/eth_biwi_01229.pdf)]
+
+<div align="center">
+  <img src="DEX.png" alt="Logo" width="" height="200">
+</div>
 
 #### Advantages:
 
@@ -40,25 +52,33 @@ Backbone for feature extraction folowed by classification. They mostly use cross
 
 #### Disadvantages:
 
-- misclassifications are treated equally, even though some age predictions may be more accurate than others.
+- Misclassifications are treated equally, even though some age predictions may be more accurate than others.
 
 ### Extended binary classification: 
 Extended binary classification also known as multiclass binary classification or one-vs-all classification, is an extension of the standard binary classification problem. In binary classification, the goal is to classify instances into one of two classesIn extended binary classification, the problem involves classifying instances into one of multiple classes, but each class is treated as an independent binary classification problem against all other classes combined.
 
 #### Papers:
 
-+ **Ordinal Regression(OR-CNN) _"Zhenxing Niu"_:** this approach transform the ordinal regression task into multiple binary classification sub-problems. For each age value y<sub>k</sub>∈ Y, they construct a binary classifier to predict whether the true age y ∈ Y of a sample x ∈ X is larger than y<sub>k</sub> .thier model network consists of 3 convolutional, 3 local response normalization, and 2 max pooling layers followed by a fully connected layer with 80 neurons. they publish an Asian Face Age Dataset (AFAD) containing more than 160K facial images with precise age ground-truths, which is the largest public age dataset to date. Also achieves the state-of-the-art performance on both the MORPH and AFAD datasets in 2016.
++ **Ordinal Regression(OR-CNN) _"Zhenxing Niu"_:** This approach transforms the ordinal regression task into multiple binary classification sub-problems. For each age value y<sub>k</sub>∈ Y, they construct a binary classifier to predict whether the true age y ∈ Y of a sample x ∈ X is larger than y<sub>k</sub> Their model network consists of 3 convolutional, 3 local response normalization, and 2 max-pooling layers followed by a fully connected layer with 80 neurons. they publish an Asian Face Age Dataset (AFAD) containing more than 160K facial images with precise age ground-truths, which is the largest public age dataset to date. Also achieves the state-of-the-art performance on both the MORPH and AFAD datasets in 2016.
   [[`Paper`](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Niu_Ordinal_Regression_With_CVPR_2016_paper.pdf)]
+
+  <div align="center">
+    <img src="OR-CNN.png" alt="Logo" width="" height="200">
+  </div>
 
 
 + **Rank consistent ordinal regression (CORAL) _"Wenzhi Cao"_:** modify extended binary classification approach by restricting the hypothesis class such that the binary classifier predictions are consistent, i.e., the predicted probabilities satisfy:   
 **p(y > y<sub>k</sub>|x) ≥ p(y > y<sub>k+1</sub>|x); ∀k**   
-And also They chose the ResNet-34 architecture for feature extracting.
+Also They chose the ResNet-34 architecture for feature extracting.
   [[`Paper`](https://arxiv.org/pdf/1901.07884.pdf)]
+
+<div align="center">
+  <img src="CORAL.png" alt="Logo" width="" height="300">
+</div>
 
 #### Advantages:
 
-- _Unlike classification, where the labels just represent categories, ordinal regresion utilizes labels that provide sufficient information to order the objects._
+- _Unlike classification, where the labels just represent categories, ordinal regression utilizes labels that provide sufficient information to order the objects._
 
 #### Disadvantages:
 
@@ -73,8 +93,11 @@ Fixed Distribution Learning focuses on optimizing machine learning models for a 
   [[`V1 Paper`](https://arxiv.org/pdf/1611.01731.pdf)]
   [[`V2 Paper`](https://arxiv.org/pdf/2007.01771.pdf)]
 
+<div align="center">
+  <img src="DLDL.png" alt="Logo" width="" height="200">
+</div>
 
-+ **Soft labels for ordinal regression (SORD) _" Amit Marathe"_ :** this approach the task similarly, but encode the label distribution as a double exponential distribution centered at the true label.
++ **Soft labels for ordinal regression (SORD) _" Amit Marathe"_ :** This approach the task similarly, but encodes the label distribution as a double exponential distribution centered at the true label.
   [[`Paper`](https://openaccess.thecvf.com/content_CVPR_2019/papers/Diaz_Soft_Labels_for_Ordinal_Regression_CVPR_2019_paper.pdf)]
 
 #### Advantages:
@@ -95,11 +118,17 @@ this approach emerging in recent years is not to model a specific distribution, 
 + **Mean-Variance _"Hongyu Pan"_:** this approach the task as standard multi-class classification, but design a loss function that (i) minimizes the squared difference between the expectation E<sub>yˆ∼f(x)</sub> [y^] and the true label y ∈ Y, and (ii) minimizes the variance E<sub>y¯∼f(x)</sub> (y¯ − E<sub>yˆ∼f(x)</sub> [y^])<sup>2</sup> of the model output distribution f(x).
   [[`Paper`](https://openaccess.thecvf.com/content_cvpr_2018/papers/Pan_Mean-Variance_Loss_for_CVPR_2018_paper.pdf)]
 
-
+  <div align="center">
+    <img src="Mean-Variance.png" alt="Logo" width="" height="200">
+  </div>
 
 + **Adaptive Mean-Residue Loss _"Ziyuan Zhao"_:** in this paper they design an adaptive entropy-based residue loss, which can penalize the age probabilities out of dynamic top-K. By combining mean loss with residue loss, we proposed a simple, yet very efficient loss, adaptive mean-residue loss, for facial age estimation. They say _"If it is hard to extract deeper facial features, why not suppress uncorrelated features and dynamically penalize the residue to strengthen the correlation among the top-K classes indirectly?"_. Experimental results are superior to the existing state-of-the-art benchmarks, e.g., mean-variance loss.
   [[`Paper`](https://arxiv.org/pdf/2203.17156v1.pdf)]
   [[`Code`](https://github.com/jacobzhaoziyuan/AMR-Loss)]
+
+  <div align="center">
+    <img src="ADAPTIVE MEAN-RESIDUE.png" alt="Logo" width="" height="200">
+  </div>
 
 #### Advantages:
 
@@ -120,6 +149,11 @@ Transformer-based architectures, originally designed for natural language proces
 + **Multi-input Transformer(MiVOLO) _"Maksim Kuprashevich"_ :** MiVOLO is Transformer-based architectures that has pair input(face, rest of the body). For each input pair of size 224 × 224, we independently apply the original VOLO patch embedding module, which tokenizes the crops into image patches of size 8 × 8. Two representations are then fed into a feature enhancer module for cross-view feature fusion, which is achieved using cross-attention. Once the features are enriched with additional information, we perform a simple concatenation, followed by a Multi-Layer Perceptron (MLP) that creates a new fused joint representation and reduces the dimensionality of the features. This feature fusion allows us to pay attention to important features from both inputs and disregard less significant ones. Additionally, it handles scenarios where one of the inputs is empty, ensuring meaningful information is extracted even from a single view. they chose the VOLO model because it converges quickly and requires less data in experience. Additionally, VOLO is one of the fastest transformer-based vision models. Also they compare model's age recognition performance with human-level accuracy and demonstrate that it significantly outperforms humans across a majority of age ranges. This model is state-of-the-art in lots of tasks.
   [[`Paper`](https://arxiv.org/pdf/2307.04616.pdf)]
   [[`Code`](https://github.com/WildChlamydia/MiVOLO/tree/main)]
+
+  <div align="center">
+    <img src="MiVOLO.png" alt="Logo" width="" height="400">
+  </div>
+  
 #### Advantages:
 
 - _This approach is very powerful and has achieved state-of-the-art performance in numerous tasks._
