@@ -188,10 +188,40 @@ For optimization, we initially employed SGD, which resulted in a loss of 4.7. Su
 ### Data
 Our model was trained on the UTKFace dataset, chosen due to its wide adoption in the research community, facilitating comparisons with existing work. However, we rigorously evaluated our best model on the CACD2000 dataset, where we achieved a Mean Absolute Error (MAE) loss of 10.
 
+  <div align="center">
+    <img src="images/age_histogram.png" alt="Logo" width="" height="400">
+  </div>
+
+  <div align="center">
+    <img src="images/gender_histogram.png" alt="Logo" width="" height="400">
+  </div>
+
+  <div align="center">
+    <img src="images/race_histogram.png" alt="Logo" width="" height="400">
+  </div>
+
 After further fine-tuning our best model for 10 epochs on the CACD dataset, we achieved a loss of 8 on the CACD test set and 5 on the UTKFace dataset.
+
+  <div align="center">
+    <img src="images/violine_plot.png" alt="Logo" width="" height="400">
+  </div>
+
+  <div align="center">
+    <img src="images/violin_race_plot.png" alt="Logo" width="" height="400">
+  </div>
 
 ### Experiment
 The results of our experiments are presented below:
+
+  <div align="center">
+    <img src="images/mean_error.png" alt="Logo" width="" height="400">
+    The mean error per age group
+  </div>
+
+  <div align="center">
+    <img src="images/num_images_per_age.png" alt="Logo" width="" height="400">
+    The number of images per age group
+  </div>
 
 ---------------------------------------------------------------
 ## Model Limitations
