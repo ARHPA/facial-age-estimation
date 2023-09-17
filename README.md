@@ -13,6 +13,22 @@ Facial age estimation is about teaching a computer program to guess how old some
 - _A user-friendly GUI is essential. This GUI could be in the form of a desktop app, web app, or another appropriate platform._
 - _The project must include excellent and comprehensive documentation, along with comments in the source code for better understanding._
 
+--------------------------------------------------------
+## Usage
+
+1. Clone the repository:
+    ```bash
+    $ git clone https://github.com/ARHPA/facial-age-estimation.git
+    ```
+2. Run the application: (future option)
+    ```bash
+    $ python GUI.py
+    ```
+2. Upload an image.
+3. Click on the "analyze" button to obtain predictions for age.
+
+--------------------------------------------------------
+
 ## Related Works:
 
 I have read several important and significant papers related to Facial Age Estimation. In this section, I would like to present some of the most important approaches that have been proposed to address this problem. I have categorized them into five fields, but it's important to note that there are more papers and approaches within this field.
@@ -161,3 +177,35 @@ Transformer-based architectures, originally designed for natural language proces
 #### Disadvantages:
 
 - _The requirement for extensive computational resources during both training and inference could present challenges for real-time or resource-constrained applications._
+--------------------------------------------------------
+## Our method:
+
+### Model and Optimizer
+In this work, we employed a simple regression approach. Our model's backbone consists of a fine-tuned ResNet50, followed by a fully connected layer with 100 output classes. While we explored alternative backbones like MobileNet, EfficientNet B0, and ResNet with FPN, ResNet50 consistently achieved the best loss.
+
+For optimization, we initially employed SGD, which resulted in a loss of 4.7. Subsequently, we switched to Adam optimization, which improved our results, yielding a loss of 4.55.
+
+### Data
+Our model was trained on the UTKFace dataset, chosen due to its wide adoption in the research community, facilitating comparisons with existing work. However, we rigorously evaluated our best model on the CACD2000 dataset, where we achieved a Mean Absolute Error (MAE) loss of 10.
+
+After further fine-tuning our best model for 10 epochs on the CACD dataset, we achieved a loss of 8 on the CACD test set and 5 on the UTKFace dataset.
+
+### Experiment
+The results of our experiments are presented below:
+
+---------------------------------------------------------------
+## Model Limitations
+Please keep in mind that the image analysis model has some limitations, which can affect its accuracy. Due to these limitations, the model may not always provide perfect predictions for age, gender, and race. Despite efforts to address these challenges during development and training, achieving high accuracy in such predictions is a complex task influenced by various factors.
+
+- Incorrect Labels in the Dataset: The dataset used to train the model may contain some incorrect or inaccurate labels. As a result, there might be instances where the predicted age, gender, or race may not accurately represent the actual attributes of the person in the image.
+
+- Challenges with Gender Detection for Babies: Detecting the gender of babies (under 7 years old) can be challenging due to the limited development of gender-specific physical characteristics at an early age. The model may have difficulty accurately determining the gender for this age group.
+
+- Difficulty Distinguishing Black People from Indian and White People from Others: The model may face challenges when distinguishing between individuals of different races, particularly when it comes to distinguishing black people from Indian people or white people from others. These races may exhibit similarities in certain facial features, leading to potential misclassifications.
+
+- Dependence on Training Data: The accuracy of the age, gender, and race predictions heavily relies on the quality and diversity of the training data used. If the training data is not representative of all age groups, genders, and races, the model's performance may be limited in accurately predicting these attributes.
+
+## Contributing
+
+Contributions to this project are welcome! If you encounter any issues or have suggestions for improvements, please [open an issue](https://github.com/ARHPA/facial-age-estimation/issues/new). If you would like to contribute code, please fork the repository and submit a pull request.
+Please note that the final part of the project, related to experiments, is not yet complete and is open for contributions as well. Your input and contributions are valuable in enhancing this project. Thank you for considering contributing!
