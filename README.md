@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="Age-estimation-hero.png" alt="Logo" width="" height="300">
+  <img src="images/Age-estimation-hero.png" alt="Logo" width="" height="300">
 </div>
 
 # Facial Age Estimation
@@ -43,7 +43,7 @@ Backbone for feature extraction followed by classification. They mostly use cros
   [[`Paper`](https://data.vision.ee.ethz.ch/cvl/publications/papers/proceedings/eth_biwi_01229.pdf)]
 
 <div align="center">
-  <img src="DEX.png" alt="Logo" width="" height="200">
+  <img src="images/DEX.png" alt="Logo" width="" height="200">
 </div>
 
 #### Advantages:
@@ -63,7 +63,7 @@ Extended binary classification also known as multiclass binary classification or
   [[`Paper`](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Niu_Ordinal_Regression_With_CVPR_2016_paper.pdf)]
 
   <div align="center">
-    <img src="OR-CNN.png" alt="Logo" width="" height="200">
+    <img src="images/OR-CNN.png" alt="Logo" width="" height="200">
   </div>
 
 
@@ -73,7 +73,7 @@ Also They chose the ResNet-34 architecture for feature extracting.
   [[`Paper`](https://arxiv.org/pdf/1901.07884.pdf)]
 
 <div align="center">
-  <img src="CORAL.png" alt="Logo" width="" height="300">
+  <img src="images/CORAL.png" alt="Logo" width="" height="300">
 </div>
 
 #### Advantages:
@@ -94,7 +94,7 @@ Fixed Distribution Learning focuses on optimizing machine learning models for a 
   [[`V2 Paper`](https://arxiv.org/pdf/2007.01771.pdf)]
 
 <div align="center">
-  <img src="DLDL.png" alt="Logo" width="" height="200">
+  <img src="images/DLDL.png" alt="Logo" width="" height="200">
 </div>
 
 + **Soft labels for ordinal regression (SORD) _" Amit Marathe"_ :** This approach the task similarly, but encodes the label distribution as a double exponential distribution centered at the true label.
@@ -119,7 +119,7 @@ this approach emerging in recent years is not to model a specific distribution, 
   [[`Paper`](https://openaccess.thecvf.com/content_cvpr_2018/papers/Pan_Mean-Variance_Loss_for_CVPR_2018_paper.pdf)]
 
   <div align="center">
-    <img src="Mean-Variance.png" alt="Logo" width="" height="200">
+    <img src="images/Mean-Variance.png" alt="Logo" width="" height="200">
   </div>
 
 + **Adaptive Mean-Residue Loss _"Ziyuan Zhao"_:** in this paper they design an adaptive entropy-based residue loss, which can penalize the age probabilities out of dynamic top-K. By combining mean loss with residue loss, we proposed a simple, yet very efficient loss, adaptive mean-residue loss, for facial age estimation. They say _"If it is hard to extract deeper facial features, why not suppress uncorrelated features and dynamically penalize the residue to strengthen the correlation among the top-K classes indirectly?"_. Experimental results are superior to the existing state-of-the-art benchmarks, e.g., mean-variance loss.
@@ -127,7 +127,7 @@ this approach emerging in recent years is not to model a specific distribution, 
   [[`Code`](https://github.com/jacobzhaoziyuan/AMR-Loss)]
 
   <div align="center">
-    <img src="ADAPTIVE MEAN-RESIDUE.png" alt="Logo" width="" height="200">
+    <img src="images/ADAPTIVE MEAN-RESIDUE.png" alt="Logo" width="" height="200">
   </div>
 
 #### Advantages:
@@ -151,7 +151,7 @@ Transformer-based architectures, originally designed for natural language proces
   [[`Code`](https://github.com/WildChlamydia/MiVOLO/tree/main)]
 
   <div align="center">
-    <img src="MiVOLO.png" alt="Logo" width="" height="400">
+    <img src="images/MiVOLO.png" alt="Logo" width="" height="400">
   </div>
   
 #### Advantages:
